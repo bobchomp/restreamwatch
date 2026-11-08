@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Restream Watch",
+  "version": "1.0.0",
+  "description": "Reminds you that Restream titles are now updated in RTMP Web Player.",
+  "permissions": ["declarativeNetRequestWithHostAccess", "tabs"],
+  "host_permissions": ["*://restream.io/*", "*://*.restream.io/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["warning.html"],
+      "matches": ["*://restream.io/*", "*://*.restream.io/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
