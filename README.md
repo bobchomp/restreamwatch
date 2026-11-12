@@ -2,7 +2,7 @@
 
 An unpacked Chrome / Edge extension (Manifest V3). When anyone visits `restream.io`
 (or any subdomain, such as `app.restream.io` or `studio.restream.io`) it shows a notice
-that Restream titles are now updated in **RTMP Web Player**. The notice has a button
+that Restream is no longer used and everything now runs through **RTMP Web Player**. The notice has a button
 to <https://stream.rossmackenzie.co.uk> and a **Proceed to Restream** button.
 
 ![Preview](docs/preview.png)
