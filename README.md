@@ -28,4 +28,4 @@ and pick the `extension` folder.
 ## Publishing
 
 See [`store/PUBLISHING.md`](store/PUBLISHING.md) for step-by-step instructions to publish
-unlisted on the Chrome Web Store and Edge Add-ons, along with the listing text and images.
+unlisted on the Chrome Web Store (which Edge can install from too), along with the listing text and images.

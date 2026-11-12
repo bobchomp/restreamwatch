@@ -1,13 +1,16 @@
 # Publishing RTMP Web Player Reminder (unlisted)
 
+The extension is published **unlisted on the Chrome Web Store only**. Edge users
+install it from the same Chrome Web Store link (see *Installing in Microsoft Edge*).
+
 Everything you upload is in this `store` folder:
 
 | File | Used for |
 | --- | --- |
-| `rtmp-web-player-reminder-<version>.zip` | The extension package (both stores) |
-| `screenshot-1280x800.png` | Screenshot (both stores) |
-| `promo-tile-440x280.png` | Small promo tile (Chrome, required; Edge, optional) |
-| `logo-300x300.png` | Extension logo (Edge) |
+| `rtmp-web-player-reminder-<version>.zip` | The extension package |
+| `screenshot-1280x800.png` | Screenshot |
+| `promo-tile-440x280.png` | Small promo tile (required) |
+| `logo-300x300.png` | Only needed if you add an Edge Add-ons listing later |
 
 The listing text to paste is at the bottom of this file.
 
@@ -47,34 +50,35 @@ The listing text to paste is at the bottom of this file.
 8. **Get the link.** Once published, the item page shows the store link and the
    32-letter **item ID**. Share the link with users. Use the ID for policy force-install.
 
-## Microsoft Edge Add-ons
+## Installing in Microsoft Edge
 
-1. **Create the developer account.** Go to
-   <https://partner.microsoft.com/dashboard/microsoftedge>, sign in with a Microsoft
-   account (ideally a work one) and register for the Microsoft Edge program. It's free.
-   Fill in the contact details. Microsoft may email to verify them.
-2. **Upload.** Click **Create new extension** and upload the `rtmp-web-player-reminder-<version>.zip` file from `store/`.
-3. **Availability.**
-   - Visibility: **Hidden**.
-   - Markets: all markets.
-   - Click **Save**.
-4. **Properties.**
-   - Category: *Productivity*.
-   - "Does your extension access, collect or transmit personal information?": **No**.
-   - Support contact: your email or website.
-   - Mature content: No.
-   - Click **Save**.
-5. **Store listings.** Open **English**, then:
-   - Description: paste the *Description* below.
-   - Extension logo: upload `logo-300x300.png`.
-   - Small promotional tile: `promo-tile-440x280.png` (optional).
-   - Screenshots: `screenshot-1280x800.png` (optional).
-   - Short description: paste *Short description* below.
-   - Click **Save**.
-6. **Submit.** Click **Publish**. In *Notes for certification*, paste the
-   *Notes for reviewers* below. Review usually takes up to 7 working days.
-7. **Get the link.** When it's live, the extension's **Overview** page shows the store
-   link and the **CRX ID**. Share the link with users. Use the ID for policy force-install.
+Edge can install extensions straight from the Chrome Web Store, so there's no
+separate Edge listing.
+
+1. Open the Chrome Web Store link in **Edge**.
+2. Edge shows a banner about extensions from other stores. Click **Allow extensions
+   from other stores**, then **Allow** to confirm. (Only needed once per browser.)
+3. Click **Add to Chrome**, then **Add extension**.
+
+It updates automatically like any other extension.
+
+## Force-installing on managed devices (optional)
+
+If the devices are managed (Intune, Group Policy, Google Admin), policy can install
+the extension silently so users can't remove or disable it. Both browsers use the
+Chrome Web Store item ID and Google's update URL. Replace `<item-id>` with the
+32-letter ID from the Chrome Web Store dashboard:
+
+```
+HKLM\SOFTWARE\Policies\Google\Chrome\ExtensionInstallForcelist
+  "1" = "<item-id>;https://clients2.google.com/service/update2/crx"
+
+HKLM\SOFTWARE\Policies\Microsoft\Edge\ExtensionInstallForcelist
+  "1" = "<item-id>;https://clients2.google.com/service/update2/crx"
+```
+
+Set these through Intune or a Group Policy Object rather than editing the registry
+by hand.
 
 ## Updating later
 
@@ -86,12 +90,10 @@ pushed to GitHub (including files added through GitHub's "Upload files"), the
 2. rebuilds the zip as `store/rtmp-web-player-reminder-<version>.zip`, removing the old one,
 3. commits both back to the same branch, about a minute after your push.
 
-Then pull (or download) the new zip from `store/` and upload it:
-
-- Chrome: open the item, choose **Package**, then **Upload new package**, and submit for review.
-- Edge: open the extension, choose **Update**, upload the new zip and publish.
-
-Installed copies update on their own once the new version is approved.
+Then download the new zip from `store/` and upload it: in the Chrome Web Store
+dashboard, open the item, choose **Package**, then **Upload new package**, and submit
+for review. Installed copies (in Chrome and Edge) update on their own once the new
+version is approved.
 
 If you're working locally instead, run this to do the same thing by hand:
 
@@ -107,9 +109,6 @@ To rebuild the zip without changing the version, add `--no-bump`.
 
 ### Name
 RTMP Web Player Reminder
-
-### Short description (max 132 characters)
-Reminds you that streams are now run through RTMP Web Player when you open Restream, with an option to continue.
 
 ### Description
 When you open restream.io, RTMP Web Player Reminder shows a short notice explaining that we no
