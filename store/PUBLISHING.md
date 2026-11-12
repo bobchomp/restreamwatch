@@ -4,7 +4,7 @@ Everything you upload is in this `store` folder:
 
 | File | Used for |
 | --- | --- |
-| `restream-watch-1.0.0.zip` | The extension package (both stores) |
+| `restream-watch-<version>.zip` | The extension package (both stores) |
 | `screenshot-1280x800.png` | Screenshot (both stores) |
 | `promo-tile-440x280.png` | Small promo tile (Chrome, required; Edge, optional) |
 | `logo-300x300.png` | Extension logo (Edge) |
@@ -82,18 +82,28 @@ The listing text to paste is at the bottom of this file.
 
 ## Updating later
 
-1. Make the change in `extension/`.
-2. Raise `version` in `extension/manifest.json` (e.g. `1.0.0` to `1.0.1`). Both stores
-   reject a package with the same version number.
-3. Re-zip from inside the `extension` folder so `manifest.json` is at the top of the zip:
+The version number raises itself. Whenever a change to anything in `extension/` is
+pushed to GitHub (including files added through GitHub's "Upload files"), the
+**Bump extension version** action:
 
-   ```bash
-   cd extension && zip -r ../store/restream-watch-1.0.1.zip . -x '.*'
-   ```
+1. raises the last number of `version` in `extension/manifest.json` (e.g. `1.0.0` to `1.0.1`),
+2. rebuilds the zip as `store/restream-watch-<version>.zip`, removing the old one,
+3. commits both back to the same branch, about a minute after your push.
 
-4. Chrome: open the item, choose **Package**, then **Upload new package**, and submit for review.
-   Edge: open the extension, choose **Update**, upload the new zip and publish.
-   Installed copies update on their own once the new version is approved.
+Then pull (or download) the new zip from `store/` and upload it:
+
+- Chrome: open the item, choose **Package**, then **Upload new package**, and submit for review.
+- Edge: open the extension, choose **Update**, upload the new zip and publish.
+
+Installed copies update on their own once the new version is approved.
+
+If you're working locally instead, run this to do the same thing by hand:
+
+```bash
+python3 scripts/release.py
+```
+
+To rebuild the zip without changing the version, add `--no-bump`.
 
 ---
 

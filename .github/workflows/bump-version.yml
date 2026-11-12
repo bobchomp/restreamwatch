@@ -1,0 +1,35 @@
+name: Bump extension version
+
+# Whenever files in extension/ change, raise the patch version in
+# manifest.json and rebuild the store zip, then commit both back.
+# Commits made with GITHUB_TOKEN don't trigger workflows, so this can't loop.
+
+on:
+  push:
+    paths:
+      - "extension/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bump-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bump version and build zip
+        run: python3 scripts/release.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A extension/manifest.json store/
+          VERSION=$(python3 -c "import json;print(json.load(open('extension/manifest.json'))['version'])")
+          git commit -m "Bump extension version to $VERSION"
+          git push
