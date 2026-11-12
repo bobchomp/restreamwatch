@@ -1,19 +1,15 @@
-# Publishing Restream Watch (unlisted)
+# Publishing RTMP Web Player Reminder (unlisted)
 
 Everything you upload is in this `store` folder:
 
 | File | Used for |
 | --- | --- |
-| `restream-watch-<version>.zip` | The extension package (both stores) |
+| `rtmp-web-player-reminder-<version>.zip` | The extension package (both stores) |
 | `screenshot-1280x800.png` | Screenshot (both stores) |
 | `promo-tile-440x280.png` | Small promo tile (Chrome, required; Edge, optional) |
 | `logo-300x300.png` | Extension logo (Edge) |
 
 The listing text to paste is at the bottom of this file.
-
-> **Before you start: the name.** Both stores can reject a name that uses another
-> company's brand. "Restream Watch" could be flagged. If it is, rename it, e.g.
-> "RTMP Web Player Reminder" (change `name` in `extension/manifest.json` and re-zip).
 
 ---
 
@@ -25,7 +21,7 @@ The listing text to paste is at the bottom of this file.
    and pay the one-time $5 fee.
 2. **Finish the account page.** In **Account**, set a contact email and verify it (you
    can't publish until it's verified), and complete the trader / non-trader declaration.
-3. **Upload.** Click **New item** and upload `restream-watch-1.0.0.zip`.
+3. **Upload.** Click **New item** and upload the `rtmp-web-player-reminder-<version>.zip` file from `store/`.
 4. **Store listing tab.**
    - Description: paste the *Description* below.
    - Category: *Productivity* (or the closest workflow/tools category offered).
@@ -57,7 +53,7 @@ The listing text to paste is at the bottom of this file.
    <https://partner.microsoft.com/dashboard/microsoftedge>, sign in with a Microsoft
    account (ideally a work one) and register for the Microsoft Edge program. It's free.
    Fill in the contact details. Microsoft may email to verify them.
-2. **Upload.** Click **Create new extension** and upload `restream-watch-1.0.0.zip`.
+2. **Upload.** Click **Create new extension** and upload the `rtmp-web-player-reminder-<version>.zip` file from `store/`.
 3. **Availability.**
    - Visibility: **Hidden**.
    - Markets: all markets.
@@ -87,7 +83,7 @@ pushed to GitHub (including files added through GitHub's "Upload files"), the
 **Bump extension version** action:
 
 1. raises the last number of `version` in `extension/manifest.json` (e.g. `1.0.0` to `1.0.1`),
-2. rebuilds the zip as `store/restream-watch-<version>.zip`, removing the old one,
+2. rebuilds the zip as `store/rtmp-web-player-reminder-<version>.zip`, removing the old one,
 3. commits both back to the same branch, about a minute after your push.
 
 Then pull (or download) the new zip from `store/` and upload it:
@@ -110,13 +106,13 @@ To rebuild the zip without changing the version, add `--no-bump`.
 ## Listing text
 
 ### Name
-Restream Watch
+RTMP Web Player Reminder
 
 ### Short description (max 132 characters)
 Reminds you that streams are now run through RTMP Web Player when you open Restream, with an option to continue.
 
 ### Description
-When you open restream.io, Restream Watch shows a short notice explaining that we no
+When you open restream.io, RTMP Web Player Reminder shows a short notice explaining that we no
 longer use Restream, and that everything (including YouTube and Facebook) now runs
 through RTMP Web Player.
 

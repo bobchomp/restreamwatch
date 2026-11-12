@@ -37,10 +37,10 @@ def main() -> None:
         version = new
 
     # Keep only the zip for the current version.
-    for old in STORE.glob("restream-watch-*.zip"):
+    for old in STORE.glob("*.zip"):
         old.unlink()
 
-    out = STORE / f"restream-watch-{version}.zip"
+    out = STORE / f"rtmp-web-player-reminder-{version}.zip"
     files = sorted(p for p in EXT.rglob("*")
                    if p.is_file() and not any(part.startswith(".") for part in p.relative_to(EXT).parts))
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:

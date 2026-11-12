@@ -1,4 +1,4 @@
-// Restream Watch: sends any visit to restream.io (or a subdomain) to the
+// RTMP Web Player Reminder: sends any visit to restream.io (or a subdomain) to the
 // extension's notice page, and lets one visit through when "Proceed" is clicked.
 
 const REDIRECT_RULE_ID = 1;

@@ -1,4 +1,4 @@
-# Restream Watch
+# RTMP Web Player Reminder
 
 An unpacked Chrome / Edge extension (Manifest V3). When anyone visits `restream.io`
 (or any subdomain, such as `app.restream.io` or `studio.restream.io`) it shows a notice
