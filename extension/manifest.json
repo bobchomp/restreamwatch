@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "RTMP Web Player Reminder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reminds you that everything now runs through RTMP Web Player instead of Restream.",
   "permissions": ["declarativeNetRequestWithHostAccess", "tabs"],
   "host_permissions": ["*://restream.io/*", "*://*.restream.io/*"],
