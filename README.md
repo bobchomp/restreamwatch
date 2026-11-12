@@ -24,3 +24,8 @@ and pick the `extension` folder.
 - The Poppins font is bundled in `extension/fonts` (SIL Open Font License, see `OFL.txt`),
   so the page makes no requests to Google.
 - Colours are CSS variables at the top of `extension/warning.css`.
+
+## Publishing
+
+See [`store/PUBLISHING.md`](store/PUBLISHING.md) for step-by-step instructions to publish
+unlisted on the Chrome Web Store and Edge Add-ons, along with the listing text and images.
